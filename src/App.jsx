@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, Route, Switch } from 'react-router-dom'
+import { GetAllPets } from './pages/GetAllPets'
 
 export function App() {
   return (
@@ -22,6 +23,7 @@ export function App() {
       </header>
       <Switch>
         <Route exact path="/">
+          <GetAllPets />
           Home
         </Route>
         <Route exact path="/1">
