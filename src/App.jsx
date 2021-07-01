@@ -10,7 +10,7 @@ export function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/">Go Home</Link>
+              <Link to="/api/Pet">Go Home</Link>
             </li>
             <li>
               <Link to="/1">Page 1</Link>
@@ -22,9 +22,9 @@ export function App() {
         </nav>
       </header>
       <Switch>
-        <Route exact path="/">
+        <Route exact path="/api/Pet">
           <GetAllPets />
-          Home
+          {/* Home */}
         </Route>
         <Route exact path="/1">
           Page 1
