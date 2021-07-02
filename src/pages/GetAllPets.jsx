@@ -3,6 +3,8 @@ import { Pet } from '../components/Pet.jsx'
 
 export function GetAllPets() {
   const [allPets, setAllPets] = useState([])
+  const [newPet, setNewPet] = useState({})
+  const [newNameText, setNewNameText] = useState('Rosco')
 
   async function getAllPets() {
     const response = await fetch(
@@ -18,22 +20,45 @@ export function GetAllPets() {
     getAllPets()
   }, [])
 
+  async function postNewPet(event) {
+    event.preventDefault()
+    const response = await fetch(
+      `https://rosco-the-everliving.herokuapp.com/api/Pet`,
+      {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          name: newNameText,
+        }),
+      }
+    )
+    const newPetData = await response.json()
+    console.log(newPetData)
+    setNewPet(newPetData)
+  }
+  useEffect(() => {
+    getAllPets()
+  }, [newPet])
+
   return (
     <>
       <header>
         <h1> Ladies and Gentlemen, Rosco and friends!</h1>
       </header>
       <main>
+        <form onSubmit={postNewPet}>
+          <input
+            type="text"
+            value={newNameText}
+            onChange={event => setNewNameText(event.target.value)}
+          />
+          <button type="submit">Create a new friend!</button>
+        </form>
         <ul>
-          {allPets.map(function (pet) {
+          {allPets.map(function (pet, key) {
             return (
               <>
-                <Pet
-                  name={pet.name}
-                  birthday={pet.birthday}
-                  hungerLevel={pet.hungerLevel}
-                  happinessLevel={pet.happinessLevel}
-                />
+                <Pet className="AllPets" id={key} name={pet.name} />
               </>
             )
           })}

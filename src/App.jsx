@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, Route, Switch } from 'react-router-dom'
 import { GetAllPets } from './pages/GetAllPets'
+import { PetDetails } from './pages/PetDetails'
 
 export function App() {
   return (
@@ -10,7 +11,7 @@ export function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/api/Pet">Go Home</Link>
+              <Link to="/">Go Home</Link>
             </li>
             <li>
               <Link to="/1">Page 1</Link>
@@ -22,12 +23,13 @@ export function App() {
         </nav>
       </header>
       <Switch>
-        <Route exact path="/api/Pet">
+        <Route exact path="/">
           <GetAllPets />
+          {/* <NewPet /> */}
           {/* Home */}
         </Route>
-        <Route exact path="/1">
-          Page 1
+        <Route exact path="/:id">
+          <PetDetails />
         </Route>
         <Route exact path="/2">
           Page 2

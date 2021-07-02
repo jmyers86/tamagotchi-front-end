@@ -11,8 +11,22 @@ body {
   min-height: 100%;
 }
 
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+header nav {
+  display: flex;
+  flex-direction: row;
+}
+
 ul li {
   list-style: none;
+}
+main {
+  display: flex;
+  flex-direction: row;
 }
 
 .Pet {
