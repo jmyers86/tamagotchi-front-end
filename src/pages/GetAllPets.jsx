@@ -46,7 +46,7 @@ export function GetAllPets() {
         <h1> Ladies and Gentlemen, Rosco and friends!</h1>
       </header>
       <main>
-        <form onSubmit={postNewPet}>
+        <form onSubmit={postNewPet} className="SubmitForm">
           <input
             type="text"
             value={newNameText}
@@ -55,11 +55,14 @@ export function GetAllPets() {
           <button type="submit">Create a new friend!</button>
         </form>
         <ul>
-          {allPets.map(function (pet, key) {
+          {allPets.map(function (pet) {
             return (
-              <>
-                <Pet className="AllPets" id={key} name={pet.name} />
-              </>
+              <Pet
+                className="AllPets"
+                id={pet.id}
+                key={pet.id}
+                name={pet.name}
+              />
             )
           })}
         </ul>

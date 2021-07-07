@@ -15,10 +15,18 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #ffc6bd;
+}
+footer {
+  background-color: #ffc6bd;
 }
 header nav {
   display: flex;
   flex-direction: row;
+}
+.Pet .IsDead {
+  display: flex;
+  justify-content: space-around;
 }
 
 ul li {
@@ -30,7 +38,14 @@ main {
 }
 
 .Pet {
+  background-image: url('Images/tam-bg.png');
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 2rem;
+}
+.SubmitForm {
+  display: flex;
+  flex-direction: row;
+  max-height: 1.5rem;
 }

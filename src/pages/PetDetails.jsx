@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 
 export function PetDetails() {
   const [pet, setPet] = useState({
+    id: undefined,
     name: '',
     birthday: undefined,
     hungerLevel: undefined,
@@ -13,6 +14,7 @@ export function PetDetails() {
   })
 
   const params = useParams()
+  // @ts-ignore
   const id = params.id
   const history = useHistory()
 
@@ -119,8 +121,11 @@ export function PetDetails() {
         <li className="HappinessLevel">
           Happiness Level: {pet.happinessLevel}
         </li>
-        <li className="LastInteracted">{pet.lastInteractedWithDate}</li>
-        <li className="LastFed">{pet.lastTimeFed}</li>
+        <li className="LastInteracted">
+          Last Interacted: {pet.lastInteractedWithDate}
+        </li>
+        <li className="LastFed">Last Fed: {pet.lastTimeFed}</li>
+
         <li className="IsDead">{pet.isDead ? 'R.I.P' : 'Still kickin!'}</li>
       </ul>
       <button onClick={playWithPet}>Play with {pet.name}</button>
