@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, Route, Switch } from 'react-router-dom'
 import { GetAllPets } from './pages/GetAllPets'
 import { PetDetails } from './pages/PetDetails'
+import logo from './Images/joe logo.png'
 
 export function App() {
   return (
@@ -30,6 +31,10 @@ export function App() {
         </Route>
         <Route path="*">Not Found</Route>
       </Switch>
+      <footer>
+        <img src={logo} height="64" alt="logo" />
+        <p>&copy; 2021 bigphaez industries, Inc.</p>
+      </footer>
     </>
   )
 }

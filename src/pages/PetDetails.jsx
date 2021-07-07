@@ -1,6 +1,12 @@
 import { useHistory, useParams } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
+import combat from '../Images/Tams/Combat.png'
+import lilMama from '../Images/Tams/Lil Mama.png'
+import nukie from '../Images/Tams/Nukie.png'
+import rosco from '../Images/Tams/Rosco.png'
+import sushi from '../Images/Tams/Sushi.png'
 
+const images = [combat, lilMama, nukie, rosco, sushi]
 export function PetDetails() {
   const [pet, setPet] = useState({
     id: undefined,
@@ -128,6 +134,7 @@ export function PetDetails() {
 
         <li className="IsDead">{pet.isDead ? 'R.I.P' : 'Still kickin!'}</li>
       </ul>
+      <img className="DetailImg" src={images[id % images.length]}></img>
       <button onClick={playWithPet}>Play with {pet.name}</button>
       <button onClick={feedPet}>Feed {pet.name}</button>
       <button onClick={scoldPet}>Scold {pet.name}</button>

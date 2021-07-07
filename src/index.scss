@@ -19,6 +19,8 @@ header {
 }
 footer {
   background-color: #ffc6bd;
+  display: flex;
+  flex-direction: row;
 }
 header nav {
   display: flex;
@@ -47,5 +49,10 @@ main {
 .SubmitForm {
   display: flex;
   flex-direction: row;
+
   max-height: 1.5rem;
+}
+.DetailImg {
+  max-width: 20rem;
+  max-height: 20rem;
 }
